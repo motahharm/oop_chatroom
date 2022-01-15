@@ -1,0 +1,27 @@
+<h1>
+    Web Socket Example
+</h1>
+<p>
+    open console to see connection.<br>
+    ws.send(`
+    {
+    "work":"connect",
+    "first_name":"",
+    "last_name":"",
+    "email":"",
+    "phone_number" :""
+    }
+    `)<br>
+    ws.send(` { "work":"send", "content": "hi" } `)
+</p>
+<script>
+    var ws = new WebSocket('ws://localhost:7071');
+
+    ws.onopen = function () {
+        console.log('websocket is connected ...')
+    }
+    ws.onmessage = function (evt) {
+        var received_msg = evt.data;
+        console.log(received_msg);
+    };
+</script>
